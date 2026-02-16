@@ -1,7 +1,3 @@
----
-title: IPF-Pedal – Projektübersicht
----
-
 # IPF-Pedal
 
 Willkommen zur Dokumentation des IPF-Pedal-Projekts.  
