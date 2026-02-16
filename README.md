@@ -1,15 +1,15 @@
 # IPF-Pedal
 
 Willkommen zur Dokumentation des IPF-Pedal-Projekts.  
-Dieses Repository enthält eine Sammlung von Pure-Data-Patches, mit denen sich ein mehrteiliges Gitarren‑ bzw. Audio‑Effektpedal realisieren lässt – inklusive:
+Dieses Repository enthält eine Sammlung von Pure-Data-Patches, mit denen sich ein mehrteiliges Gitarren‑ bzw. Audio‑Effektpedal, auf Grundlage der Impulse Pattern Formulation, realisieren lässt – inklusive:
 
 - Audioeingang und ‑ausgabe
 - Effektsektion (Pitch & Delay)
-- Synth-Sektion
+- Live-Sampler-Synth-Sektion
 - GUI-/Frontend-Steuerung
 - Hilfs‑ und Utility-Patches
 
-Die Patches sind so aufgebaut, dass sie gemeinsam ein komplettes Setup für Live‑Performance, Experimente mit Gitarren‑/Audioeffekten und Synth-Sounds bilden.
+Die Patches sind so aufgebaut, dass sie gemeinsam ein komplettes Setup für Live‑Performance, Experimente mit Gitarren‑/Audioeffekten und Sampler-Synth-Sounds bilden.
 
 ## Projektstruktur
 
@@ -28,7 +28,7 @@ Die wichtigsten Ordner im Repository sind:
   - `melodiner.pd` (melodische Pitch‑Bearbeitung)
 
 - `Synth/`  
-  Synthesizer‑Patches (z. B. `OnsetSamplerSynth.pd`, `voice.pd`, `voicemn.pd`) zur Klangerzeugung und ‑manipulation.
+  Sampler-Synthesizer‑Patches (z. B. `OnsetSamplerSynth.pd`, `voice.pd`, `voicemn.pd`) zur Klangerzeugung und ‑manipulation.
 
 - `Utility/`  
   Hilfs‑ und Infrastrukturpatches, z. B.:
@@ -86,7 +86,7 @@ Voraussetzungen:
 4. Sicherstellen, dass die im Patch referenzierten Unterpatches (`../utility/*`, `../project/pedalfrontend`, etc.) im Suchpfad von Pd liegen (standardmäßig genügt meist das Öffnen aus dem Projektverzeichnis).
 5. DSP in Pd aktivieren.
 
-Über das GUI können nun Audioeingang, Effekte, Synth und die Fußschaltersteuerung getestet werden.
+Über das GUI können nun Audioeingang, Effekte, Sample-Synth und die Fußschaltersteuerung getestet werden.
 
 ### 2. Frontend/Backend getrennt verwenden (optional)
 
