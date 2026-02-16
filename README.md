@@ -4,8 +4,8 @@ Willkommen zur Dokumentation des IPF-Pedal-Projekts.
 Dieses Repository enthält eine Sammlung von Pure-Data-Patches, mit denen sich ein mehrteiliges Gitarren‑ bzw. Audio‑Effektpedal, auf Grundlage der Impulse Pattern Formulation, realisieren lässt – inklusive:
 
 - Audioeingang und ‑ausgabe
-- Effektsektion (Pitch & Delay)
-- Live-Sampler-Synth-Sektion
+- Effektsektion: Durch die IPF modulierte Effekte (Pitch & Delay)
+- Sampler-Synth-Sektion: Dynamische Rhythmus und Melodie-Erzeugung durch die IPF
 - GUI-/Frontend-Steuerung
 - Hilfs‑ und Utility-Patches
 
@@ -42,13 +42,14 @@ Die wichtigsten Ordner im Repository sind:
   Externe/zusätzliche Objekte und deren Hilfepatches (z. B. `momentary2toggle-help.pd`, `ipf~-help.pd`, `ipf-help.pd`), die vom Projekt verwendet werden.
 
 ## Zentrale Bedienkonzepte
+<img width="222" height="370" alt="IPFPedalGUI" src="https://github.com/user-attachments/assets/d8c7d423-d691-44a2-91f3-fa2edf415a96" />
 
 Aus den GUI‑Elementen in `Project/PedalGUI.pd` und `Project/PedalBackend.pd` ergeben sich folgende Kernkonzepte:
 
 - **Sektionen**
   - **Audio Input**: Eingangssignale (z. B. Gitarre, Mikrofon) werden in das Patch geroutet.
   - **FX Section**: Effekte für Pitch und Delay – einzeln oder kombiniert schaltbar.
-  - **Synth Section**: Synthesizer‑Einheit, die über Fußtaster oder MIDI aktiviert werden kann.
+  - **Synth Section**: Sample-Synthesizer‑Einheit, die über Fußtaster oder MIDI aktiviert werden kann.
 
 - **Fußschalter & Regler** (Beispiele aus der GUI-Beschriftung)
   - Fußschalter:
