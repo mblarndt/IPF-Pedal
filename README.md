@@ -1,7 +1,7 @@
 # IPF-Pedal
 
 Willkommen zur Dokumentation des IPF-Pedal-Projekts.  
-Dieses Repository enthält eine Sammlung von Pure-Data-Patches, mit denen sich ein mehrteiliges Gitarren‑ bzw. Audio‑Effektpedal, auf Grundlage der Impulse Pattern Formulation, realisieren lässt – inklusive:
+Dieses Repository enthält eine Sammlung von plugdata-Patches, mit denen sich ein mehrteiliges Gitarren‑ bzw. Audio‑Effektpedal, auf Grundlage der Impulse Pattern Formulation, realisieren lässt – inklusive:
 
 - Audioeingang und ‑ausgabe
 - Effektsektion: Durch die IPF modulierte Effekte (Pitch & Delay)
@@ -75,26 +75,17 @@ Aus den GUI‑Elementen in `Project/PedalGUI.pd` und `Project/PedalBackend.pd` e
 ## Einstieg: Projekt ausführen
 
 Voraussetzungen:
-
-- Installierte PlugData‑Umgebung (mit den benötigten Externals `else`, `cyclone`, `CEAMMC` .).
+- Installierte plugdata‑Umgebung (mit den benötigten Externals `else`, `cyclone`, `CEAMMC` .).
 - Audio‑Interface bzw. geeigneter Ein-/Ausgang für das gewünschte Setup (z. B. Gitarre, Line‑In, etc.).
 
-### 1. Haupt-GUI starten
-
-1. Repository klonen oder lokal verfügbar machen.
-2. In Plug Data `Project/PedalGUI.pd` öffnen.
-3. In Plug Data `Project/PedalBackend.pd` öffnen.
-4. Sicherstellen, dass die im Patch referenzierten Unterpatches (`../utility/*`, `../project/pedalfrontend`, etc.) im Suchpfad von Pd liegen (standardmäßig genügt meist das Öffnen aus dem Projektverzeichnis).
+1. Repository klonen.
+2. Füge `/Externals` in den Einstellungen den Paths hinzu.
+3. `Project/PedalBackend.pd` öffnen.
+4. `Project/PedalGUI.pd` öffnen.
 5. DSP in Pd aktivieren.
 
 Über das GUI können nun Audioeingang, Effekte, Sample-Synth und die Fußschaltersteuerung getestet werden.
 
-### 2. Frontend/Backend getrennt verwenden (optional)
-
-Für Debugging oder alternative Setups können auch `PedalFrontend.pd` und `PedalBackend.pd` separat geöffnet werden:
-
-- **Frontend**: Fokus auf Steuerlogik, Eingabegeräte (Footswitches, Regler, MIDI).
-- **Backend**: Fokus auf Signalfluss, FX‑Section, Synth‑Section und Audio‑Routing.
 
 ## Weiterentwicklung & Anpassung
 
