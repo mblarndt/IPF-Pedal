@@ -1,15 +1,43 @@
 # IPF-Pedal
 
-Willkommen zur Dokumentation des IPF-Pedal-Projekts.  
-Dieses Repository enthält eine Sammlung von plugdata-Patches, mit denen sich ein mehrteiliges Gitarren‑ bzw. Audio‑Effektpedal, auf Grundlage der Impulse Pattern Formulation, realisieren lässt – inklusive:
+Ein experimentelles, IPF‑gesteuertes Gitarren‑ & Audio‑Pedal in plugdata.
 
-- Audioeingang und ‑ausgabe
-- Effektsektion: Durch die IPF modulierte Effekte (Pitch & Delay)
-- Sampler-Synth-Sektion: Dynamische Rhythmus und Melodie-Erzeugung durch die IPF
-- GUI-/Frontend-Steuerung
-- Hilfs‑ und Utility-Patches
+IPF‑Pedal ist ein Set aus plugdata‑Patches, das auf der **Impulse Pattern Formulation (IPF)** basiert und als **kreative Spielwiese für experimentelle Effekte, Live‑Sampling und generative Melodien** dient.  
+Statt nur „statischer“ FX bekommst du ein Pedal‑Rig, das aktiv auf dein Spiel reagiert – in Echtzeit.
 
-Die Patches sind so aufgebaut, dass sie gemeinsam ein komplettes Setup für Live‑Performance, Experimente mit Gitarren‑/Audioeffekten und Sampler-Synth-Sounds bilden.
+### Features im Überblick
+
+- **IPF‑modulierte Effekte**  
+  Die Effektsektion (Pitch, Delay, Melodiner u. a.) wird direkt durch die IPF moduliert.  
+  Die IPF erzeugt komplexe Muster, die Parameter wie Tonhöhenverschiebung, Delay‑Zeit, Feedback oder Mix dynamisch bewegen – von subtiler Bewegung bis hin zu komplett zerlegten, chaotischen Texturen.
+
+- **Experimentelle FX‑Architektur**  
+  Statt klassischer „Ein‑Knopf‑Pro‑Effekt“-Logik arbeitet IPF‑Pedal mit **Meta‑Parametern**, die ganze Effektketten modulieren können. Dadurch eignen sich die Patches besonders für **Sounddesign, Improvisation und Live‑Experimente**.
+
+- **Live‑Sampler‑Synth mit IPF‑Melodien**  
+  Ein zentraler Baustein ist der **Live‑Sampler‑Synth**:
+  - erkennt **in Echtzeit** die von dir gespielten Noten,
+  - baut daraus ein **Set spielbarer Noten** auf,
+  - nutzt dieses Set, um einen **Synthesizer** aufzubauen, der wiederum **Melodien spielt, die durch die IPF generiert werden**.  
+  Dein Spiel liefert also das Rohmaterial, die IPF baut daraus neue rhythmische und melodische Strukturen.
+
+- **Dynamische Tempo‑Anpassung an dein Spiel**  
+  Ein **modifizierter IPF‑Algorithmus analysiert dein Timing** und passt das Tempo des Synthesizers dynamisch an dein tatsächliches Spieltempo an.  
+  So bleibt das System musikalisch „im Groove“, selbst wenn du Tempo und Feel ständig variierst.
+
+- **Pedal‑optimiertes GUI mit Fußschaltern & 6 Makro‑Reglern**  
+  Das GUI bildet ein klassisches Pedal‑Layout nach – mit Fußschaltern, Moditasten und **sechs Makro‑Reglern** für Performance‑Spielereien (inkl. Chaos, Tempo, Notes).
+
+- **Modulare Struktur für eigene Experimente**  
+  FX‑Module, Utility‑Patches und Synth‑Sektionen sind sauber getrennt aufgebaut, sodass du problemlos eigene Algorithmen und IPF‑Anwendungen integrieren kannst.
+
+### Kompatibilität
+
+- **Empfohlene Umgebung: plugdata**  
+  IPF‑Pedal ist primär für **plugdata** entwickelt und getestet (inkl. Externals wie `else`, `cyclone`, `CEAMMC` etc.).
+- **Pure Data (Pd)**  
+  Viele Teile lassen sich auch in Pd Vanilla nutzen, **die volle Funktionalität ist dort aktuell aber nicht gewährleistet**.  
+  Für das komplette Erlebnis (inkl. GUI‑Details und Externals) wird **plugdata dringend empfohlen**.
 
 ## Projektstruktur
 
@@ -69,13 +97,26 @@ Aus den GUI‑Elementen in `Project/PedalGUI.pd` und `Project/PedalBackend.pd` e
     - M3: (Platz für weitere Modi/Erweiterungen)
 
 - **Steuerparameter**
-  - `knob1`–`knob6`: Drehregler, die u. a. an `guitarinput`, FX‑Parameter und Synth‑Sektionen angebunden sind.
+  - `knob1`–`knob6`: Drehregler, die u. a. an `guitarinput`, FX‑Parameter und Synth‑Sektionen angebunden sind.  
+    Besonders wichtig sind dabei:
+    - **Chaos**: Steuert, **wie extrem** die IPF die Effektparameter moduliert – von subtiler Bewegung bis zur kompletten Zerstörung des Signals.
+    - **Tempo**: Bestimmt das **Tempo der IPF‑Modulationen** und beeinflusst damit sowohl die FX‑Rhythmen als auch das Timing des Synth‑Sequencings.
+    - **Notes**: Kontrolliert, **wie hoch der Threshold für zu spielende Noten** liegt – also ab wann eine gespielte Note in das Notenset des Live‑Sampler‑Synths übernommen wird.
   - `fs1s`, `fs2s`, `tglsw1`–`tglsw3`: Fußschalter‑ und Toggle‑Zustände, die Routing und Effekte beeinflussen.
+
+### Live‑Sampler‑Synth & IPF‑Tempo‑Tracking
+
+Der Live‑Sampler‑Synth ist das Herzstück der „intelligenten“ Klangerzeugung:
+
+- **Notenerkennung in Echtzeit**: Gespielte Noten werden analysiert und in ein internes Notenset übernommen (abhängig vom `Notes`‑Threshold).
+- **Aufbau eines spielbaren Synth‑Sets**: Aus diesen Noten wird ein **dynamischer Synthesizer** gebaut, der mit deinen eigenen Tönen arbeitet.
+- **IPF‑generierte Melodien**: Die IPF nutzt dieses Set, um **rhythmisch und melodisch strukturierte Patterns** zu erzeugen, die zwischen harmonischer Ergänzung und kontrolliertem Chaos pendeln können.
+- **Dynamische Tempo‑Anpassung**: Ein modifizierter IPF‑Algorithmus passt das Tempo des Synthesizers an dein eigenes Spieltempo an – das System „atmet“ mit dir, statt dich in ein starres Grid zu zwingen.
 
 ## Einstieg: Projekt ausführen
 
 Voraussetzungen:
-- Installierte plugdata‑Umgebung (mit den benötigten Externals `else`, `cyclone`, `CEAMMC` .).
+- Installierte **plugdata‑Umgebung** (mit den benötigten Externals `else`, `cyclone`, `CEAMMC` etc.).
 - Audio‑Interface bzw. geeigneter Ein-/Ausgang für das gewünschte Setup (z. B. Gitarre, Line‑In, etc.).
 
 1. Repository klonen.
@@ -84,7 +125,7 @@ Voraussetzungen:
 4. `Project/PedalGUI.pd` öffnen.
 5. DSP in Pd aktivieren.
 
-Über das GUI können nun Audioeingang, Effekte, Sample-Synth und die Fußschaltersteuerung getestet werden.
+Über das GUI können nun Audioeingang, **IPF‑modulierte Effekte**, der **Live‑Sampler‑Synth** sowie Fußschalter‑ und Reglersteuerung getestet werden.
 
 
 ## Weiterentwicklung & Anpassung
