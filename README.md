@@ -140,5 +140,6 @@ Mögliche Erweiterungen:
 ## Lizenz & Quellen
 
 Die Lizenzinformation befindet sich in `LICENSE`.  
-Weitere Hinweise oder Aktualisierungen können in der `README.md` im Projektwurzelverzeichnis ergänzt werden.
+
+[1] Linke, S., Bader, R., Mores, R. (2019). The impulse pattern formulation (IPF) as a model of musical instruments—Investigation of stability and limits. In: Chaos: An Interdisciplinary Journal of Nonlinear Science 29(10) https://doi.org/10.1063/1.5092511
 
