@@ -9,13 +9,11 @@
 #X text 566 267 Learn MIDI;
 #X text 527 570 Long Press: Record Audio;
 #X text 527 588 Short Press: Activate Synth;
-#X obj 292 221 ../project/pedalfrontend;
+#X obj 292 236 ../project/pedalfrontend;
 #X text 527 377 B1: 4/4;
 #X text 527 399 B2: 8/8;
 #X text 527 420 B2: 6/8;
-#X text 527 306 FX1: Pitch;
 #X text 527 328 FX2: Delay;
-#X text 527 349 FX3: Both;
 #X text 527 449 M1: PitchMode;
 #X text 527 471 M2: RepeatMode;
 #X text 527 492 M3:;
@@ -23,6 +21,8 @@
 #X text 527 524 Footswitch L: Toggle FX;
 #X obj 490 764 midi.out;
 #X obj 581 655 keyboard 16 80 4 2 0 0 empty empty;
+#X text 527 349 FX3: Melodiner;
+#X text 527 306 FX1: Computerverse;
 #X connect 1 0 10 0;
 #X connect 2 0 1 0;
 #X connect 10 0 0 0;
@@ -31,5 +31,5 @@
 #X connect 10 1 0 0;
 #X connect 10 2 0 1;
 #X connect 10 2 0 0;
-#X connect 10 3 22 0;
-#X connect 23 0 22 0;
+#X connect 10 3 20 0;
+#X connect 21 0 20 0;

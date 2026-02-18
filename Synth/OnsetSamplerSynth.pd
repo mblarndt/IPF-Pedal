@@ -1,12 +1,12 @@
 #N canvas 1440 25 1920 1027 12;
 #X obj 0 161 cnv 15 220 149 empty empty ADSR 2 11 0 17 #a8b9e4 #373737 0;
 #N canvas 0 0 450 250 (subpatch) 0;
-#X array \$0-rec 360000 float 4;
-#X coords 0 1 359999 -1 813 185 1;
+#X array \$0-rec 720000 float 4;
+#X coords 0 1 719999 -1 813 185 1;
 #X restore 1482 991 graph;
 #N canvas 0 0 450 250 (subpatch) 0;
-#X array \$0-onsets 360000 float 2;
-#X coords 0 1 360000 0 813 185 1;
+#X array \$0-onsets 720000 float 2;
+#X coords 0 1 720000 0 813 185 1;
 #X restore 1482 991 graph;
 #X msg 203 1084 1;
 #X obj 236 855 timer;
@@ -71,7 +71,7 @@
 #X obj 3 535 inlet~ audio;
 #X obj 238 73 s record;
 #X obj 3 638 *~;
-#X obj 601 80 inlet midi;
+#X obj -78 309 inlet midi;
 #X text 7 187 Attack;
 #X text 7 216 Decay;
 #X text 7 246 Sustain;
@@ -129,7 +129,7 @@
 #X msg 546 821 const 0;
 #X obj 546 855 s \$0-onsets;
 #X msg 614 685 0;
-#X obj 200 109 bng 14 250 50 0 empty empty Clear 0 -5 0 7 #2b2ae4 #4c4c4c #373737;
+#X obj 200 143 bng 14 250 50 0 empty empty Clear 0 -5 0 7 #2b2ae4 #4c4c4c #373737;
 #X obj 348 123 s \$0-clear;
 #X msg 1845 185 const 0;
 #X obj 1845 151 r \$0-clear;
@@ -288,6 +288,9 @@
 #X obj 815 341 dac~;
 #X obj 927 273 bng 25 250 50 0 empty empty empty 17 7 0 10 #e4e4e4 #4d4d4d #373737;
 #X obj 917 322 tabplay~ mn56;
+#X obj 246 33 inlet clear;
+#X obj 0 309 cnv 15 220 72 empty empty Quantization 2 11 0 17 #f6dcaa #373737 0;
+#X obj 40 329 ../utility/midiquantizer;
 #X connect 3 0 117 0;
 #X connect 4 0 16 0;
 #X connect 5 0 21 0;
@@ -342,7 +345,7 @@
 #X connect 65 0 181 0;
 #X connect 65 0 118 0;
 #X connect 65 0 200 0;
-#X connect 66 0 91 0;
+#X connect 66 0 285 1;
 #X connect 75 0 20 0;
 #X connect 83 0 64 0;
 #X connect 84 0 61 0;
@@ -534,4 +537,6 @@
 #X connect 281 0 282 0;
 #X connect 282 0 280 0;
 #X connect 282 0 280 1;
-#X coords 0 0 1 1 221 311 1 0 0;
+#X connect 283 0 124 0;
+#X connect 285 0 91 0;
+#X coords 0 0 1 1 221 381 1 0 0;
