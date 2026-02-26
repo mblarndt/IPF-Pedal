@@ -1,4 +1,4 @@
-#N canvas 1519 66 1640 905 12;
+#N canvas 0 25 1440 847 12;
 #X obj 1834 343 cnv 19 249 159 empty empty empty 20 12 0 12 #e0e0e0 #404040 0;
 #X obj 2196 248 adc~;
 #X obj 1775 272 loadbang;
@@ -27,7 +27,9 @@
 #X floatatom 1928 379 5 0 0 0 - - - 0;
 #X text 1888 379 ADC#;
 #X obj 1673 324 else/initmess 2;
-#X msg 1889 296 1;
+#X msg 1889 296 0;
+#X obj 1947 221 loadbang;
+#X obj 1980 260 \$1;
 #X connect 1 0 21 0;
 #X connect 2 0 11 0;
 #X connect 2 0 28 0;
@@ -51,4 +53,6 @@
 #X connect 25 0 24 0;
 #X connect 27 0 25 0;
 #X connect 28 0 16 0;
+#X connect 29 0 30 0;
+#X connect 30 0 25 0;
 #X coords 0 0 1 1 245 106 1 1835 346;

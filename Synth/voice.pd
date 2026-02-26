@@ -42,6 +42,7 @@
 #X obj 69 813 t f f;
 #X obj 69 869 spigot;
 #X obj 108 843 > 20;
+#X text 268 68 Looks into notearray to check if played note exists. If not it uses the closest existing note;
 #X connect 1 0 0 0;
 #X connect 2 0 3 0;
 #X connect 3 0 4 0;
