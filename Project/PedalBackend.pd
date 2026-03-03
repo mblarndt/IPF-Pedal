@@ -39,7 +39,7 @@
 #X obj 546 595 r~ audioin;
 #X obj 591 1237 r~ audioin;
 #X obj 1507 783 r~ audioin;
-#X obj 2615 661 r~ audioin;
+#X obj 2783 682 r~ audioin;
 #X obj 157 317 s pitch;
 #X obj 604 567 r pitch;
 #X obj 268 317 s onset;
@@ -74,19 +74,20 @@
 #X obj 2586 716 ../synth/onsetsamplersynth;
 #X msg 112 669 0;
 #X obj 512 1148 cyclone/selector~ 3;
-#X obj 2783 661 r fs2s;
-#X obj 2684 661 r fs3s;
+#X obj 2733 682 r fs2s;
+#X obj 2634 682 r fs3s;
 #X obj 158 712 ../fx/ipitchf-vanilla;
 #X obj 431 712 ../fx/ipfilterdelay-vanilla;
 #X obj 724 712 ../fx/melodiner;
 #X obj 2549 682 r midinote;
-#X obj 2733 661 r fs3l;
+#X obj 2683 682 r fs3l;
 #X obj 2589 1132 *~ 4;
 #X obj 333 1177 tgl 25 0 empty empty empty 17 7 0 10 #e4e4e4 #4d4d4d #373737 0 1;
 #X obj 1965 569 tgl 25 0 empty empty empty 17 7 0 10 #e4e4e4 #4d4d4d #373737 0 1;
 #X obj 63 554 else/initmess 0;
 #X obj 2067 604 else/tap;
-#X obj 2849 615 else/keyboard 17 80 4 2 0 0 empty empty;
+#X obj 2586 565 else/keyboard 17 80 4 2 0 0 empty empty;
+#X obj 2865 682 r tglsw3;
 #X connect 3 0 50 0;
 #X connect 3 0 51 3;
 #X connect 4 0 33 0;
@@ -148,7 +149,7 @@
 #X connect 38 0 48 1;
 #X connect 38 0 69 1;
 #X connect 39 0 51 1;
-#X connect 40 0 72 4;
+#X connect 40 0 72 5;
 #X connect 42 0 77 6;
 #X connect 42 0 78 6;
 #X connect 44 0 77 8;
@@ -203,4 +204,5 @@
 #X connect 85 0 20 0;
 #X connect 86 0 5 0;
 #X connect 87 0 72 0;
+#X connect 88 0 72 4;
 #X coords 0 1387 1 1386 220 368 0;
