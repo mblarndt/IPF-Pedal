@@ -39,7 +39,7 @@
 #X obj 546 595 r~ audioin;
 #X obj 591 1237 r~ audioin;
 #X obj 1507 783 r~ audioin;
-#X obj 2783 682 r~ audioin;
+#X obj 2925 682 r~ audioin;
 #X obj 157 317 s pitch;
 #X obj 604 567 r pitch;
 #X obj 268 317 s onset;
@@ -71,7 +71,7 @@
 #X obj 673 1285 cyclone/selector~ 2;
 #X obj 649 1399 *~;
 #X obj 649 1353 expr abs($f1-1);
-#X obj 2586 716 ../synth/onsetsamplersynth;
+#X obj 2592 724 ../synth/onsetsamplersynth;
 #X msg 112 669 0;
 #X obj 512 1148 cyclone/selector~ 3;
 #X obj 2733 682 r fs2s;
@@ -87,7 +87,7 @@
 #X obj 63 554 else/initmess 0;
 #X obj 2067 604 else/tap;
 #X obj 2586 565 else/keyboard 17 80 4 2 0 0 empty empty;
-#X obj 2865 682 r tglsw3;
+#X obj 2795 682 r tglsw3;
 #X connect 3 0 50 0;
 #X connect 3 0 51 3;
 #X connect 4 0 33 0;
