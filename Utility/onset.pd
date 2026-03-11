@@ -8,6 +8,7 @@
 #X obj 247 585 threshold~ 0.018 100 0.017 50;
 #X obj 258 330 inlet~ signal;
 #X obj 247 666 outlet onset;
+#X obj 408 666 outlet offset;
 #X connect 0 0 3 0;
 #X connect 0 0 1 0;
 #X connect 1 0 4 1;
@@ -16,4 +17,5 @@
 #X connect 4 0 6 0;
 #X connect 5 0 4 0;
 #X connect 6 0 8 0;
+#X connect 6 1 9 0;
 #X connect 7 0 2 0;
