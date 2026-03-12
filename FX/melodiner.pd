@@ -1,6 +1,6 @@
 #N canvas 2112 80 882 803 12;
 #X obj -2 -2 cnv 15 181 335 empty empty empty 20 12 0 14 #e4e4e4 #e4e4e4 0;
-#X obj 311 375 inlet~ audio;
+#X obj -275 405 inlet~ audio;
 #X text 107 60 Multiply;
 #X obj 112 262 tgl 29 0 empty empty empty 17 7 0 10 #e4e4e4 #4d4d4d #373737 0 1;
 #X obj 96 622 outlet~ signal;
