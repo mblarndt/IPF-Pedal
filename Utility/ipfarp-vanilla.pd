@@ -7,7 +7,7 @@
 #X msg 927 941 0.37;
 #X floatatom 338 1033 5 0 0 0 - - - 12;
 #X obj 338 1138 int;
-#X floatatom 338 1209 5 0 0 0 - - - 12;
+#X floatatom 338 1195 5 0 0 0 - - - 12;
 #X obj 160 799 env~;
 #X obj 354 1302 hsl 128 17 0 127 0 0 empty empty empty -2 -8 0 10 #e4e4e4 #4d4d4d #373737 0 1;
 #X obj 327 1248 f;
@@ -907,10 +907,12 @@
 #X obj 338 1165 spigot;
 #X floatatom 338 1083 5 0 0 0 - - - 12;
 #X obj 887 1421 poly 8;
-#X obj 724 1096 expr 105-$f1;
+#X obj 690 1113 expr 105-$f1;
 #X obj 338 1058 else/mov.avg 5;
 #X obj 403 869 ../utility/onset;
 #X obj 766 973 else/rand.f 0.37 1.5;
+#X obj 727 1033 inlet centernotemode;
+#X obj 693 1070 selector;
 #X connect 0 0 12 4;
 #X connect 0 0 13 0;
 #X connect 0 0 5 0;
@@ -927,6 +929,7 @@
 #X connect 7 0 73 0;
 #X connect 8 0 11 1;
 #X connect 8 0 76 0;
+#X connect 8 0 81 0;
 #X connect 9 0 42 0;
 #X connect 9 0 43 0;
 #X connect 10 0 29 0;
@@ -1002,8 +1005,10 @@
 #X connect 74 0 34 1;
 #X connect 75 1 60 0;
 #X connect 75 2 60 1;
-#X connect 76 0 26 0;
+#X connect 76 0 81 1;
 #X connect 77 0 74 0;
 #X connect 78 0 33 0;
 #X connect 79 0 12 1;
+#X connect 80 0 81 2;
+#X connect 81 0 26 0;
 #X coords 0 0 1 1 1098 374 1 0 0;
