@@ -23,9 +23,11 @@
 #X text 330 631 Long Press - Delete recorded Notes for Synth;
 #X obj 317 9 keyboard 16 80 4 2 0 0 empty empty;
 #X obj 317 102 instrument.m~;
+#A saved 53;
+#A saved;
 #X obj 317 206 ../utility/dsp;
 #X obj 151 664 else/plate.rev.m~;
-#A saved 50 0.5 0.25 0.75 0.5 1;
+#A saved 50 0.5 0.25 0.474 0;
 #A saved;
 #A saved;
 #A saved;

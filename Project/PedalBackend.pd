@@ -54,12 +54,12 @@
 #X obj 541 1399 *~;
 #X obj 541 1353 expr abs($f1-1);
 #X obj 314 1322 / 127;
-#X obj 2636 1163 / 127;
-#X obj 2636 1197 *~;
+#X obj 2636 1263 / 127;
+#X obj 2636 1297 *~;
 #X obj 333 567 r knob5;
 #X obj 314 1285 r knob6;
-#X obj 2634 1124 r knob6;
-#X obj 2636 1264 s~ synth;
+#X obj 2634 1224 r knob6;
+#X obj 2636 1364 s~ synth;
 #X obj 580 1466 s~ fxR;
 #X obj 496 1466 s~ fxL;
 #X obj 380 91 r~ guitar;
@@ -79,7 +79,7 @@
 #X obj 724 712 ../fx/melodiner;
 #X obj 2549 682 r midinote;
 #X obj 2683 682 r fs3l;
-#X obj 2589 1132 *~ 4;
+#X obj 2589 1232 *~ 4;
 #X obj 333 1177 tgl 25 0 empty empty empty 17 7 0 10 #e4e4e4 #4d4d4d #373737 0 1;
 #X obj 1965 569 tgl 25 0 empty empty empty 17 7 0 10 #e4e4e4 #4d4d4d #373737 0 1;
 #X obj 63 554 else/initmess 0;
@@ -93,10 +93,12 @@
 #X text 2875 724 Test;
 #X text 2875 745 1 You play short notes. Synth plays long notes;
 #X text 2875 773 2 You play long notes. Synth plays short notes, f 72;
-#X obj 2875 805 hradio 20 1 0 2 empty empty empty 0 -8 0 10 #e4e4e4 #4d4d4d #373737 0;
+#X obj 2875 835 hradio 20 1 0 3 empty empty empty 0 -8 0 10 #e4e4e4 #4d4d4d #373737 0;
 #X text 1327 695 1 Notes generate arround played center note;
 #X obj 2132 725 r fs2s;
 #X obj 1754 768 r fs2s;
+#X obj 2441 705 midi.in;
+#X text 2875 802 3 Off, f 72;
 #X connect 3 0 48 0;
 #X connect 3 0 49 5;
 #X connect 4 0 33 0;
@@ -216,4 +218,5 @@
 #X connect 90 0 49 4;
 #X connect 94 0 70 6;
 #X connect 97 0 49 3;
+#X connect 98 0 70 0;
 #X coords 0 1387 1 1386 220 368 0;
