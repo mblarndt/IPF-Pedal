@@ -1,0 +1,11 @@
+#N canvas 733 172 450 300 (subpatch) 1;
+#X obj 2817 537 until 127;
+#X obj 2817 592 sel 127;
+#X obj 2817 566 counter 0 127;
+#X obj 2817 470 inlet;
+#X obj 2817 647 outlet;
+#X connect 0 0 2 0;
+#X connect 0 0 4 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
