@@ -216,7 +216,7 @@
 #X connect 86 0 70 4;
 #X connect 87 0 30 0;
 #X connect 90 0 49 4;
-#X connect 94 0 70 6;
+#X connect 94 0 70 9;
 #X connect 97 0 49 3;
 #X connect 99 0 70 0;
 #X coords 0 1387 1 1386 220 368 0;
