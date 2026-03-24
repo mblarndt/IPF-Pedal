@@ -18,7 +18,7 @@ Voraussetzungen:
 
 Über das GUI können nun Audioeingang, **IPF‑modulierte Effekte**, der **Live‑Sampler‑Synth** sowie Fußschalter‑ und Reglersteuerung getestet werden.
 
-### Features im Überblick
+## Features im Überblick
 
 - **IPF‑modulierte Effekte**  
   Die Effektsektion (Pitch, Delay, Melodiner u. a.) wird direkt durch die IPF moduliert.  
