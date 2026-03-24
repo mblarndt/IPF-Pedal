@@ -5,6 +5,19 @@ Ein experimentelles, IPF‑gesteuertes Gitarren‑ & Audio‑Pedal in plugdata.
 IPF‑Pedal ist ein Set aus plugdata‑Patches, das auf der **Impulse Pattern Formulation (IPF)** basiert und als **kreative Spielwiese für experimentelle Effekte, Live‑Sampling und generative Melodien** dient.  
 Statt nur „statischer“ FX bekommst du ein Pedal‑Rig, das aktiv auf dein Spiel reagiert – in Echtzeit.
 
+## Einstieg: Projekt ausführen
+
+Voraussetzungen:
+- Installierte **plugdata‑Umgebung** (mit den benötigten Externals `else`, `cyclone`, `list-abs` etc.).
+- Audio‑Interface bzw. geeigneter Ein-/Ausgang für das gewünschte Setup (z. B. Gitarre, Line‑In, etc.).
+
+1. Repository klonen.
+2. Füge `/Externals` in den Einstellungen den Paths hinzu.
+3. `Project/PedalGUI.pd` öffnen.
+4. DSP in Pd aktivieren.
+
+Über das GUI können nun Audioeingang, **IPF‑modulierte Effekte**, der **Live‑Sampler‑Synth** sowie Fußschalter‑ und Reglersteuerung getestet werden.
+
 ### Features im Überblick
 
 - **IPF‑modulierte Effekte**  
@@ -112,20 +125,6 @@ Der Live‑Sampler‑Synth ist das Herzstück der „intelligenten“ Klangerzeu
 - **Aufbau eines spielbaren Synth‑Sets**: Aus diesen Noten wird ein **dynamischer Synthesizer** gebaut, der mit deinen eigenen Tönen arbeitet.
 - **IPF‑generierte Melodien**: Die IPF nutzt dieses Set, um **rhythmisch und melodisch strukturierte Patterns** zu erzeugen, die zwischen harmonischer Ergänzung und kontrolliertem Chaos pendeln können.
 - **Dynamische Tempo‑Anpassung**: Ein modifizierter IPF‑Algorithmus passt das Tempo des Synthesizers an dein eigenes Spieltempo an – das System „atmet“ mit dir, statt dich in ein starres Grid zu zwingen.
-
-## Einstieg: Projekt ausführen
-
-Voraussetzungen:
-- Installierte **plugdata‑Umgebung** (mit den benötigten Externals `else`, `cyclone`, `CEAMMC` etc.).
-- Audio‑Interface bzw. geeigneter Ein-/Ausgang für das gewünschte Setup (z. B. Gitarre, Line‑In, etc.).
-
-1. Repository klonen.
-2. Füge `/Externals` in den Einstellungen den Paths hinzu.
-3. `Project/PedalBackend.pd` öffnen.
-4. `Project/PedalGUI.pd` öffnen.
-5. DSP in Pd aktivieren.
-
-Über das GUI können nun Audioeingang, **IPF‑modulierte Effekte**, der **Live‑Sampler‑Synth** sowie Fußschalter‑ und Reglersteuerung getestet werden.
 
 
 ## Weiterentwicklung & Anpassung
