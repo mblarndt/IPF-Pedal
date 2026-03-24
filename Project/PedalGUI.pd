@@ -11,7 +11,6 @@
 #X text 245 462 B2: 6/8;
 #X text 245 370 FX2: Delay;
 #X text 245 391 FX3: Melodiner;
-#X text 245 348 FX1: Computerverse;
 #X obj 10 102 ../utility/audioinput 1;
 #X text 245 491 M1: PitchMode;
 #X text 245 513 M2: Closest Note, f 19;
@@ -21,11 +20,12 @@
 #X text 245 612 Footswitch 3: Short Press - Freeze recorded Notes for Synth;
 #X text 330 631 Long Press - Delete recorded Notes for Synth;
 #X obj 312 9 ../utility/dsp;
-#X connect 1 0 13 0;
+#X text 245 348 FX1: Pitch;
+#X connect 1 0 12 0;
 #X connect 6 0 0 0;
 #X connect 6 0 0 1;
 #X connect 6 1 0 0;
 #X connect 6 1 0 1;
 #X connect 6 2 0 0;
 #X connect 6 2 0 1;
-#X connect 13 0 6 0;
+#X connect 12 0 6 0;
