@@ -97,8 +97,8 @@
 #X text 1327 695 1 Notes generate arround played center note;
 #X obj 2132 725 r fs2s;
 #X obj 1754 768 r fs2s;
-#X obj 2441 705 midi.in;
 #X text 2875 802 3 Off, f 72;
+#X obj 2441 705 else/midi.in;
 #X connect 3 0 48 0;
 #X connect 3 0 49 5;
 #X connect 4 0 33 0;
@@ -218,5 +218,5 @@
 #X connect 90 0 49 4;
 #X connect 94 0 70 6;
 #X connect 97 0 49 3;
-#X connect 98 0 70 0;
+#X connect 99 0 70 0;
 #X coords 0 1387 1 1386 220 368 0;
