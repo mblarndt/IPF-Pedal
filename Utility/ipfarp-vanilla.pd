@@ -1,4 +1,4 @@
-#N canvas 2080 356 1920 1027 12;
+#N canvas 4 14 1920 1027 12;
 #X obj 927 890 bng 25 250 50 0 empty empty empty 17 7 0 10 #e4e4e4 #4d4d4d #373737;
 #X obj 698 869 bng 25 250 50 0 empty empty empty 17 7 0 10 #e4e4e4 #4d4d4d #373737;
 #X floatatom 927 1071 5 0 0 0 - - - 12;
@@ -108,11 +108,15 @@
 #X text 951 75 16;
 #N canvas 0 0 450 250 (subpatch) 0;
 #X array ipfbeatarray 16 float 2;
+#A color 0;
+#A width 2;
 #X coords 0 20 16 0 905 99 1;
 #X restore 70 264 graph;
 #X obj 111 -285 tabwrite ipfbeatarray;
 #N canvas 0 0 450 250 (subpatch) 0;
 #X array ipfbeatthreshold 1 float 2;
+#A color 0;
+#A width 2;
 #X coords 0 20 1 0 905 99 1;
 #X restore 70 264 graph;
 #X obj 1205 179 tabwrite ipfbeatthreshold;
@@ -912,8 +916,9 @@
 #X obj 727 1033 inlet centernotemode;
 #X obj 693 1070 selector;
 #X obj 907 1353 pipe 1500;
-#X obj 709 -63 inlet reset;
+#X obj 709 -106 inlet reset;
 #X obj 709 -33 sel 1;
+#X msg 727 -70 1;
 #X connect 0 0 12 4;
 #X connect 0 0 13 0;
 #X connect 0 0 5 0;
@@ -1012,6 +1017,7 @@
 #X connect 79 0 25 0;
 #X connect 80 0 58 0;
 #X connect 80 0 73 0;
-#X connect 81 0 82 0;
+#X connect 81 0 83 0;
 #X connect 82 0 14 2;
+#X connect 83 0 82 0;
 #X coords 0 0 1 1 1096 382 1 0 0;

@@ -69,7 +69,7 @@
 #X obj 673 1285 cyclone/selector~ 2;
 #X obj 649 1399 *~;
 #X obj 649 1353 expr abs($f1-1);
-#X obj 2592 724 ../synth/onsetsamplersynth;
+#X obj 2592 725 ../synth/onsetsamplersynth;
 #X msg 112 669 0;
 #X obj 512 1148 cyclone/selector~ 3;
 #X obj 2733 682 r fs2s;
@@ -158,7 +158,6 @@
 #X connect 37 0 45 1;
 #X connect 37 0 46 1;
 #X connect 37 0 67 1;
-#X connect 38 0 49 1;
 #X connect 39 0 70 5;
 #X connect 41 0 75 6;
 #X connect 41 0 76 6;
