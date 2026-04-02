@@ -108,15 +108,11 @@
 #X text 951 75 16;
 #N canvas 0 0 450 250 (subpatch) 0;
 #X array ipfbeatarray 16 float 2;
-#A color 0;
-#A width 2;
 #X coords 0 20 16 0 905 99 1;
 #X restore 70 264 graph;
 #X obj 111 -285 tabwrite ipfbeatarray;
 #N canvas 0 0 450 250 (subpatch) 0;
 #X array ipfbeatthreshold 1 float 2;
-#A color 0;
-#A width 2;
 #X coords 0 20 1 0 905 99 1;
 #X restore 70 264 graph;
 #X obj 1205 179 tabwrite ipfbeatthreshold;
@@ -848,7 +844,7 @@
 #X connect 183 0 62 0;
 #X connect 183 0 66 0;
 #X connect 185 0 116 0;
-#X coords 0 0 1 1 1082 368 1 0 -1;
+#X coords 0 0 1 1 1082 368 2 0 -1;
 #X restore 13 7 pd;
 #X obj -1 396 bng 25 250 50 0 empty empty empty 17 7 0 10 #e4e4e4 #4d4d4d #373737;
 #X obj 1072 919 bng 25 250 50 0 empty empty empty 17 7 0 10 #e4e4e4 #4d4d4d #373737;
@@ -1020,4 +1016,4 @@
 #X connect 81 0 83 0;
 #X connect 82 0 14 2;
 #X connect 83 0 82 0;
-#X coords 0 0 1 1 1096 382 1 0 0;
+#X coords 0 0 1 1 1096 382 2 0 0;
