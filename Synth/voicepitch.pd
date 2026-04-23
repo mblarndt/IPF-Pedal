@@ -52,6 +52,8 @@
 #X obj 67 168 clip 0 127;
 #X obj 278 934 != 0;
 #X obj 208 924 spigot;
+#X obj 443 1056 loadbang;
+#X msg 443 1082 curve 0;
 #X connect 1 0 0 0;
 #X connect 2 0 3 0;
 #X connect 3 0 4 0;
@@ -129,3 +131,5 @@
 #X connect 50 0 41 0;
 #X connect 51 0 52 1;
 #X connect 52 0 44 0;
+#X connect 53 0 54 0;
+#X connect 54 0 34 0;
