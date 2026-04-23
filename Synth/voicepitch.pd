@@ -9,7 +9,7 @@
 #X obj 140 946 t b;
 #X obj 65 232 array get notelist;
 #X obj 196 409 -;
-#X floatatom 213 349 5 0 0 0 - - - 12;
+#X floatatom 238 324 5 0 0 0 - - - 12;
 #X floatatom 66 505 5 0 0 0 - - - 12;
 #X obj 67 544 -;
 #X obj 113 544 +;
@@ -19,14 +19,14 @@
 #X obj 156 640 sel 1;
 #X obj 113 583 t f f;
 #X obj 65 581 t f f;
-#X listbox 65 381 33 0 0 0 - - - 16;
+#X listbox 90 356 33 0 0 0 - - - 16;
 #X obj 69 717 f;
 #X floatatom 69 743 5 0 0 0 - - - 12;
 #X obj 68 199 t f f b;
 #X floatatom 7 804 5 0 0 0 - - - 12;
-#X obj 250 356 t b b b;
-#X obj 65 261 list-abs/list-unique;
-#X obj -13 319 list-abs/list-find;
+#X obj 275 331 t b b b;
+#X obj 78 262 list-abs/list-unique;
+#X obj -51 359 list-abs/list-find;
 #X obj 65 410 list-abs/list-map;
 #X obj 64 437 list-abs/list-abs;
 #X obj 66 477 list-abs/list-minmax;
@@ -34,7 +34,7 @@
 #X obj 200 610 list-abs/list-find;
 #X obj 7 778 else/selector;
 #X obj 316 1112 else/adsr~;
-#X obj 65 290 else/sort;
+#X obj 65 324 else/sort;
 #X floatatom 222 149 5 0 0 0 - - - 12;
 #X obj 69 813 t f f;
 #X obj 69 869 spigot;
@@ -54,6 +54,8 @@
 #X obj 208 924 spigot;
 #X obj 443 1056 loadbang;
 #X msg 443 1082 curve 0;
+#X obj 212 293 > 0;
+#X obj 78 293 list-abs/list-filter;
 #X connect 1 0 0 0;
 #X connect 2 0 3 0;
 #X connect 3 0 4 0;
@@ -100,7 +102,7 @@
 #X connect 25 1 13 0;
 #X connect 25 1 12 0;
 #X connect 25 2 20 0;
-#X connect 26 0 35 0;
+#X connect 26 0 56 0;
 #X connect 27 1 33 2;
 #X connect 28 0 29 0;
 #X connect 28 1 9 0;
@@ -133,3 +135,6 @@
 #X connect 52 0 44 0;
 #X connect 53 0 54 0;
 #X connect 54 0 34 0;
+#X connect 55 0 56 1;
+#X connect 56 0 35 0;
+#X connect 56 1 55 0;

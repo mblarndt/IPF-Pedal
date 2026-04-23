@@ -160,7 +160,7 @@
 #X obj 2406 1034 r fs3s;
 #X obj 2439 1010 r fs3l;
 #X obj 2374 1467 *~ 4;
-#X obj 2249 871 else/keyboard 17 80 4 0 0 0 empty empty;
+#X obj 2249 871 else/keyboard 17 80 4 2 0 0 empty empty;
 #X obj 2505 1010 r tglsw3;
 #X obj 2284 1010 else/midi.in;
 #X obj 2374 1064 ../synth/onsetsamplersynth_v02;
