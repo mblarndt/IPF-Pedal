@@ -107,12 +107,12 @@
 #X obj 348 640 inlet~ audio;
 #X obj 325 25 else/initmess 100;
 #X obj -106 275 else/initmess 1;
-#X obj 155 57 else/knob 35 0 127 0 0 empty empty #e4e4e4 #000000 #000000 0 0 0 0 0 280 0 0 0 empty empty 0 12 0 -15 0 1 0 0 0 0;
-#X obj 94 58 else/knob 35 0 127 0 0 empty empty #e4e4e4 #000000 #000000 0 0 0 0 0 280 0 0 0 empty empty 0 12 0 -15 0 1 0 0 0 0;
-#X obj 29 58 else/knob 35 0 127 0 0 empty empty #e4e4e4 #000000 #000000 0 0 0 0 0 280 0 0 0 empty empty 0 12 0 -15 0 1 0 0 0 0;
-#X obj 29 145 else/knob 35 0 127 0 0 empty empty #e4e4e4 #000000 #000000 0 0 0 0 0 280 0 0 0 empty empty 0 12 0 -15 0 1 0 0 0 0;
-#X obj 92 145 else/knob 35 0 127 0 0 empty empty #e4e4e4 #000000 #000000 0 0 0 0 0 280 0 0 0 empty empty 0 12 0 -15 0 1 0 0 0 0;
-#X obj 156 145 else/knob 35 0 127 0 0 empty empty #e4e4e4 #000000 #000000 0 0 0 0 0 280 0 0 0 empty empty 0 12 0 -15 0 1 0 0 0 0;
+#X obj 155 57 else/knob 35 0 127 0 0 empty empty #e4e4e4 #000000 #000000 0 0 0 0 0 280 0 0 0 empty empty 0 12 0 -15 0 1 0 0;
+#X obj 94 58 else/knob 35 0 127 0 0 empty empty #e4e4e4 #000000 #000000 0 0 0 0 0 280 0 0 0 empty empty 0 12 0 -15 0 1 0 0;
+#X obj 29 58 else/knob 35 0 127 0 0 empty empty #e4e4e4 #000000 #000000 0 0 0 0 0 280 0 0 0 empty empty 0 12 0 -15 0 1 0 0;
+#X obj 29 145 else/knob 35 0 127 0 0 empty empty #e4e4e4 #000000 #000000 0 0 0 0 0 280 0 0 0 empty empty 0 12 0 -15 0 1 0 0;
+#X obj 92 145 else/knob 35 0 127 0 0 empty empty #e4e4e4 #000000 #000000 0 0 0 0 0 280 0 0 0 empty empty 0 12 0 -15 0 1 0 0;
+#X obj 156 145 else/knob 35 0 127 0 0 empty empty #e4e4e4 #000000 #000000 0 0 0 0 0 280 0 0 0 empty empty 0 12 0 -15 0 1 0 0;
 #X obj 969 1502 outlet midinote;
 #X obj 168 278 tgl 19 0 empty fs3s empty 17 7 0 10 #292828 #00ff25 #373737 0 1;
 #X obj 171 350 bng 14 250 50 0 empty empty empty 17 31 0 10 #e471d6 #4d4d4d #373737;
@@ -160,7 +160,7 @@
 #X obj 2406 1034 r fs3s;
 #X obj 2439 1010 r fs3l;
 #X obj 2374 1467 *~ 4;
-#X obj 2249 871 else/keyboard 17 80 4 2 0 0 empty empty;
+#X obj 2249 871 else/keyboard 17 80 4 0 0 0 empty empty;
 #X obj 2505 1010 r tglsw3;
 #X obj 2284 1010 else/midi.in;
 #X obj 2374 1064 ../synth/onsetsamplersynth_v02;
