@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EchoMind</title>
+  <style>
+    :root {
+      --light-bg: #f2f3f6;
+      --light-bg-2: #e8ebf1;
+      --light-text: #101217;
+      --light-muted: #4f596d;
+      --dark-bg: #050608;
+      --dark-bg-2: #10151d;
+      --dark-text: #f4f6fb;
+      --dark-muted: #9ba6bc;
+      --accent: #8ab4ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      scroll-behavior: smooth;
+      background: #000;
+    }
+
+    body {
+      overflow-y: auto;
+      scroll-snap-type: y mandatory;
+    }
+
+    .section {
+      --p: 0;
+      min-height: 100svh;
+      min-height: 100vh;
+      scroll-snap-align: start;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: clamp(20px, 5vw, 56px);
+    }
+
+    .section::before {
+      content: "";
+      position: absolute;
+      width: clamp(320px, 42vw, 620px);
+      height: clamp(320px, 42vw, 620px);
+      border-radius: 50%;
+      filter: blur(2px);
+      pointer-events: none;
+      transform: translate3d(calc(var(--p) * 70px), calc(var(--p) * -35px), 0) scale(calc(1 + (var(--p) * var(--p) * 0.06)));
+      transition: transform .1s linear;
+      z-index: 0;
+    }
+
+    .section.light {
+      color: var(--light-text);
+      background:
+        radial-gradient(circle at 14% 12%, #ffffff 0%, transparent 52%),
+        linear-gradient(160deg, var(--light-bg) 0%, var(--light-bg-2) 100%);
+    }
+
+    .section.dark {
+      color: var(--dark-text);
+      background:
+        radial-gradient(circle at 85% 10%, rgba(129, 168, 255, 0.16) 0%, transparent 38%),
+        linear-gradient(165deg, var(--dark-bg) 0%, var(--dark-bg-2) 100%);
+    }
+
+    .section.light::before {
+      top: -12%;
+      right: -10%;
+      background: radial-gradient(circle at 30% 30%, rgba(138, 180, 255, 0.33) 0%, rgba(138, 180, 255, 0.08) 45%, transparent 70%);
+    }
+
+    .section.dark::before {
+      bottom: -14%;
+      left: -12%;
+      background: radial-gradient(circle at 45% 45%, rgba(169, 198, 255, 0.22) 0%, rgba(169, 198, 255, 0.06) 50%, transparent 72%);
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 1040px);
+      text-align: center;
+      transform: translateY(70px) scale(.96);
+      opacity: 0;
+      filter: blur(8px);
+      transition: transform 1.05s cubic-bezier(.2,.7,.15,1), opacity .9s ease, filter .95s ease;
+      will-change: transform, opacity, filter;
+    }
+
+    .section.is-visible .wrap {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      filter: blur(0);
+    }
+
+    .logo {
+      position: fixed;
+      top: 20px;
+      left: 22px;
+      z-index: 20;
+      font-size: .97rem;
+      font-weight: 640;
+      letter-spacing: -0.02em;
+      color: rgba(255,255,255,.92);
+      mix-blend-mode: difference;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      font-size: .73rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-weight: 580;
+    }
+
+    .light .eyebrow {
+      color: var(--light-muted);
+    }
+
+    .dark .eyebrow {
+      color: var(--dark-muted);
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+      line-height: .95;
+      letter-spacing: -0.045em;
+      font-weight: 680;
+      text-wrap: balance;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 9vw, 8.4rem);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 7vw, 6.4rem);
+    }
+
+    p {
+      margin: 18px auto 0;
+      max-width: 760px;
+      font-size: clamp(1rem, 2.1vw, 1.45rem);
+      line-height: 1.35;
+      letter-spacing: -0.018em;
+      text-wrap: balance;
+    }
+
+    .light p {
+      color: #2a3345;
+    }
+
+    .dark p {
+      color: #c7d2e9;
+    }
+
+    .chips {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: .8rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      transform: translateY(14px);
+      opacity: 0;
+      transition: transform .65s cubic-bezier(.22,.7,.2,1), opacity .65s ease;
+      transition-delay: calc(var(--i, 0) * 90ms + 120ms);
+    }
+
+    .section.is-visible .chip {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .light .chip {
+      border: 1px solid rgba(14, 20, 33, 0.14);
+      background: rgba(255,255,255,.65);
+      color: #223148;
+    }
+
+    .dark .chip {
+      border: 1px solid rgba(171, 194, 236, 0.24);
+      background: rgba(138, 180, 255, 0.08);
+      color: #dbe7ff;
+    }
+
+    .cta {
+      margin-top: 30px;
+      display: inline-flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-size: .9rem;
+      font-weight: 620;
+      border: 1px solid transparent;
+      transition: transform .25s ease, opacity .25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn.primary {
+      background: #fff;
+      color: #0d1118;
+    }
+
+    .btn.secondary {
+      color: #e7efff;
+      border-color: rgba(177, 200, 240, .33);
+      background: rgba(177, 200, 240, .08);
+    }
+
+    .hint {
+      position: fixed;
+      right: 22px;
+      bottom: 18px;
+      z-index: 15;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+      mix-blend-mode: difference;
+      pointer-events: none;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        scroll-snap-type: y proximity;
+      }
+
+      .logo {
+        top: 14px;
+        left: 14px;
+      }
+
+      .hint {
+        right: 14px;
+        bottom: 12px;
+      }
+
+      p {
+        max-width: 34ch;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html,
+      body {
+        scroll-behavior: auto;
+      }
+
+      .wrap {
+        transform: none;
+        opacity: 1;
+        filter: none;
+        transition: none;
+      }
+
+      .btn {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">echo<span style="color:#8ab4ff;">mind</span></div>
+
+  <section class="section light reveal">
+    <div class="wrap">
+      <p class="eyebrow">musical companion system</p>
+      <h1>echo<span style="color:#1368fb;">mind</span></h1>
+      <h2>Dein neuer Bandkollege.</h2>
+      <p>Nicht nur Software. Ein Mitmusiker mit Eigenleben. Ohne KI.</p>
+    </div>
+  </section>
+
+  <section class="section dark reveal">
+    <div class="wrap">
+      <p class="eyebrow">Impulse Pattern Formulation</p>
+      <h2>Keine KI. Keine Vorlagen.</h2>
+      <p>Nur IPF: Bewegung, Reaktion, Überraschung.</p>
+      <div class="chips" aria-label="Keywords">
+        <span class="chip" style="--i:0;">IPF Core</span>
+        <span class="chip" style="--i:1;">Live Co-Creation</span>
+        <span class="chip" style="--i:2;">No AI</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light reveal">
+    <div class="wrap">
+      <p class="eyebrow">3 Ebenen gleichzeitig</p>
+      <h2>Sound. Groove. Struktur.</h2>
+      <p>Ein Algorithmus mit Eigenleben. Echtzeit-Kreation ohne KI-Training.</p>
+    </div>
+  </section>
+
+  <section class="section dark reveal">
+    <div class="wrap">
+      <p class="eyebrow">from app to pedal</p>
+      <h2>Studio. Bühne. Jetzt.</h2>
+      <p>Software heute. Alu-Druckguss-Pedal als nächster Schritt.</p>
+      <div class="cta">
+        <a href="https://github.com/mblarndt/IPF-Pedal" target="_blank" rel="noopener noreferrer" class="btn primary">
+  GitHub
+</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const allSections = document.querySelectorAll('.section');
+    const sections = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        } else {
+          entry.target.classList.remove('is-visible');
+        }
+      });
+    }, {
+      threshold: 0.35
+    });
+
+    sections.forEach((section) => observer.observe(section));
+
+    const updateParallax = () => {
+      const viewportMid = window.innerHeight / 2;
+
+      allSections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const sectionMid = rect.top + rect.height / 2;
+        const progress = (sectionMid - viewportMid) / viewportMid;
+        const clamped = Math.max(-1, Math.min(1, progress));
+        section.style.setProperty('--p', clamped.toFixed(3));
+      });
+    };
+
+    updateParallax();
+    window.addEventListener('scroll', updateParallax, { passive: true });
+    window.addEventListener('resize', updateParallax);
+  </script>
+</body>
+</html>
