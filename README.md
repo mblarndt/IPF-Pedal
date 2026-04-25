@@ -121,7 +121,7 @@ The most important folders in the repository are:
   External/additional objects and their help patches (e.g. `momentary2toggle-help.pd`, `ipf~-help.pd`, `ipf-help.pd`) used by the project.
 
 ## Core interaction concepts
-<img width="222" height="370" alt="IPFPedalGUI" src="https://github.com/user-attachments/assets/d8c7d423-d691-44a2-91f3-fa2edf415a96" />
+<img width="266" height="442" alt="Bildschirmfoto 2026-04-25 um 17 46 07" src="https://github.com/user-attachments/assets/bee68a1f-7ec2-4808-b04e-b75560920cb2" />
 
 Based on the GUI elements in `Project/PedalGUI.pd` and `Project/PedalBackend.pd`, the following core concepts emerge:
 
