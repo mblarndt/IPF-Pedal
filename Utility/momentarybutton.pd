@@ -9,7 +9,7 @@
 #X obj 130 71 outlet state;
 #X obj 98 113 loadbang;
 #X obj -2 152 else/mouse;
-#X obj 0 0 tgl 25 0 empty empty empty 17 7 0 10 #e4e4e4 #4d4d4d #373737 0 1;
+#X obj 0 0 tgl 25 0 empty empty empty 17 7 0 10 #e4c799 #4d4d4d #373737 0 1;
 #X obj 130 36 changed;
 #X connect 0 0 10 0;
 #X connect 1 0 6 0;
