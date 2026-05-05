@@ -98,12 +98,12 @@ The whole pedal backend (`Project/PedalBackend.pd`) is structured in 3 modular p
     - M3: (space for further modes/extensions)
 
 - **Knob Controls**
-    - Gain In: controls **how extreme** the IPF modulates effect parameters – from subtle movement to complete signal destruction.
-    - Chaos:
-    - FX-Tempo: determines the **tempo of IPF modulations** and influences both FX rhythms and synth sequencing timing.
-    - FX D/W:
-    - Notes: controls **how high the threshold for playable notes** is – i.e. when a played note is included in the live sampler synth’s note set.
-    - Synth:
+    - Gain: Input Gain
+    - Chaos: controls **how extreme** the IPF modulates effect parameters – from subtle movement to complete signal destruction.
+    - FX-Speed: determines the **tempo of IPF modulations**.
+    - FX D/W: Mix of Dry/Wet Signal.
+    - Notes: controls **how high the threshold for playable notes** is.
+    - Synth: Live-Sampler-Synth Volume.
 
 
 ## Further development & customization
