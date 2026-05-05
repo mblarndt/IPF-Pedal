@@ -239,6 +239,23 @@
       background: rgba(177, 200, 240, .08);
     }
 
+    .screenshot-frame {
+      margin: 26px auto 0;
+      width: min(100%, 920px);
+      border-radius: 18px;
+      padding: 10px;
+      border: 1px solid rgba(14, 20, 33, 0.14);
+      background: rgba(255,255,255,.62);
+      box-shadow: 0 20px 50px rgba(16, 22, 36, 0.16);
+    }
+
+    .screenshot-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
     .hint {
       position: fixed;
       right: 22px;
@@ -296,21 +313,21 @@
 
   <section class="section light reveal">
     <div class="wrap">
-      <p class="eyebrow">musical companion system</p>
+      <p class="eyebrow">experimental plugdata pedal</p>
       <h1>echo<span style="color:#1368fb;">mind</span></h1>
-      <h2>Dein neuer Bandkollege.</h2>
-      <p>Nicht nur Software. Ein Mitmusiker mit Eigenleben. Ohne KI.</p>
+      <h2>Your responsive bandmate.</h2>
+      <p>An IPF-driven guitar and audio pedal that reacts to your playing in real time.</p>
     </div>
   </section>
 
   <section class="section dark reveal">
     <div class="wrap">
       <p class="eyebrow">Impulse Pattern Formulation</p>
-      <h2>Keine KI. Keine Vorlagen.</h2>
-      <p>Nur IPF: Bewegung, Reaktion, Überraschung.</p>
+      <h2>No AI. Just IPF in motion.</h2>
+      <p>Pitch shifting and filter delay are continuously modulated, from subtle movement to broken textures.</p>
       <div class="chips" aria-label="Keywords">
-        <span class="chip" style="--i:0;">IPF Core</span>
-        <span class="chip" style="--i:1;">Live Co-Creation</span>
+        <span class="chip" style="--i:0;">IPF Modulation</span>
+        <span class="chip" style="--i:1;">Reactive FX</span>
         <span class="chip" style="--i:2;">No AI</span>
       </div>
     </div>
@@ -318,20 +335,31 @@
 
   <section class="section light reveal">
     <div class="wrap">
-      <p class="eyebrow">3 Ebenen gleichzeitig</p>
-      <h2>Sound. Groove. Struktur.</h2>
-      <p>Ein Algorithmus mit Eigenleben. Echtzeit-Kreation ohne KI-Training.</p>
+      <p class="eyebrow">3 modules, one flow</p>
+      <h2>FX. Sampler. Sequencer.</h2>
+      <p>You play, the live sampler captures your notes, and the IPF sequencer reshapes them into new grooves and melodies.</p>
+    </div>
+  </section>
+
+  <section class="section light reveal">
+    <div class="wrap">
+      <p class="eyebrow">interface snapshot</p>
+      <h2>The current patch layout.</h2>
+      <p>A quick look at the EchoMind control surface: FX routing, synth modes, and footswitch behavior in one view.</p>
+      <div class="screenshot-frame">
+        <img src="./assets/interface-overview.png" alt="EchoMind interface screenshot showing FX, sampler, and sequencer controls.">
+      </div>
     </div>
   </section>
 
   <section class="section dark reveal">
     <div class="wrap">
-      <p class="eyebrow">from app to pedal</p>
-      <h2>Studio. Bühne. Jetzt.</h2>
-      <p>Software heute. Alu-Druckguss-Pedal als nächster Schritt.</p>
+      <p class="eyebrow">built for plugdata</p>
+      <h2>From patch to performance.</h2>
+      <p>Developed for plugdata with else, cyclone, and list-abs, and ready for future hardware integration.</p>
       <div class="cta">
         <a href="https://github.com/mblarndt/IPF-Pedal" target="_blank" rel="noopener noreferrer" class="btn primary">
-  GitHub
+  Read the Project
 </a>
       </div>
     </div>
