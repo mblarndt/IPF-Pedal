@@ -1,123 +1,115 @@
 # IPF-Pedal
 
-An experimental, IPF-driven guitar & audio pedal in plugdata.
-IPF-Pedal is a set of plugdata patches based on **Impulse Pattern Formulation (IPF)** and serves as a **creative playground for experimental effects, live sampling and generative melodies**.  
+An experimental, IPF-driven guitar and audio pedal built in **plugdata**.
 
-Instead of just “static” FX, you get a pedal rig that actively responds to your playing – in real time.
+IPF-Pedal is a collection of plugdata patches based on **Impulse Pattern Formulation (IPF)**. It serves as a creative playground for experimental effects, live sampling, and generative melodies. Instead of static effects, you get a pedal rig that actively responds to your playing in real time.
 
-## Getting started: Run the project
-Requirements:
+---
 
-- Installed **plugdata environment** (with required externals `else`, `cyclone`, `list-abs`).
+## Getting Started
 
-- Audio interface or suitable input/output for the desired setup (e.g. guitar, line-in, etc.).
+### Requirements
+- **plugdata environment**: Installed with required externals (`else`, `cyclone`, `list-abs`).
+- **Audio Interface**: Or a suitable I/O setup for your instrument (e.g., guitar, line-in).
 
-1. Clone the repository.
+### Installation & Setup
+1. **Clone** the repository to your local machine.
+2. **Add** the `/Externals` folder to your paths in the plugdata settings.
+3. **Open** `Project/PedalGUI.pd`.
+4. **Enable DSP** to start processing audio.
 
-2. Add `/Externals` to the paths in the settings.
-
-3. Open `Project/PedalGUI.pd`.
-
-4. Enable DSP.
+---
 
 ## Compatibility
 
-- **Recommended environment: plugdata**  
+* **Recommended: plugdata** IPF-Pedal is primarily developed and tested for plugdata (utilizing specific GUI elements and externals like `else` and `cyclone`).
+* **Pure Data (Pd)** While many components may function in Pd Vanilla, **full functionality is currently not guaranteed**. For the intended experience, plugdata is strongly recommended.
 
-  IPF-Pedal is primarily developed and tested for **plugdata** (including externals like `else`, `cyclone`).
-
-- **Pure Data (Pd)**  
-
-  Many parts can also be used in Pd Vanilla, **but full functionality is currently not guaranteed**.  
-
-  For the complete experience (including GUI details and externals), **plugdata is strongly recommended**.
+---
 
 ## Features
-The whole pedal backend (`Project/PedalBackend.pd`) is structured in 3 modular parts which will also work individually.
 
-- **FX-Section**   
-   `FX/fx-section.pd`
-  
-  The effects section consists of 2 effects.
-   1. IPF-modulated Pitch-Shifter. `FX/ipitchf.pd`  
-   2. IPF-modulated Filter-Delay. `FX/ipfilterdelay.pd`   
+The pedal backend (`Project/PedalBackend.pd`) is structured into three modular sections that can also function independently:
 
-  The IPF generates complex patterns that dynamically move the parameters – ranging from subtle movement to completely broken, chaotic textures.
+### 1. FX Section
+*Path: `FX/fx-section.pd`*
 
+The effects section consists of two primary modules:
+1.  **IPF-modulated Pitch-Shifter** (`FX/ipitchf.pd`)
+2.  **IPF-modulated Filter-Delay** (`FX/ipfilterdelay.pd`)
 
-- **Live sampler**  
-  `Synth/fx-section.pd`
-  
-  A central component is the **live sampler synth**:
+The IPF generates complex patterns that dynamically modulate parameters, ranging from subtle movement to completely chaotic, broken textures.
 
-  - detects the notes you play **in real time**,
+### 2. Live Sampler
+*Path: `Synth/fx-section.pd`* (Note: check if path is correct vs. Backend)
 
-  - builds a **set of playable notes**,
+A central component that transforms your input into a playable instrument:
+* **Real-time detection:** Analyzes the notes you play as you play them.
+* **Dynamic Library:** Automatically builds a set of playable notes.
+* **Synthesizer Engine:** Uses the captured samples to construct a unique, evolving synthesizer.
 
-  - uses this set to construct a **synthesizer**.
+### 3. IPF Sequencer
+*Path: `Synth/sequencer-section.pd`*
 
-- **IPF-Sequencer**   
-   `Synth/sequencer-section.pd`
-  
-  - Generates continiously **melodies and rhythms** controlled by the IPF
-    
-  - Outputs it as **MIDI data**
- 
-  - which will be used as input for the **live sampler** 
+* **Generative Performance:** Continuously generates melodies and rhythms controlled by the IPF.
+* **MIDI Workflow:** Outputs MIDI data used as input for the Live Sampler.
+* **Reactive Composition:** Your playing provides the raw material, while the IPF constructs new rhythmic and melodic structures from it.
 
-  Your playing provides the raw material, the IPF builds new rhythmic and melodic structures from it.
+### Extra: Dynamic Tempo Adaptation
+*Path: `Externals/ipf_taptempo`*
 
-- **Extra: Dynamic tempo adaptation to your playing**  
+A modified IPF algorithm analyzes your timing and dynamically adapts the synthesizer's tempo to your actual playing speed. This keeps the generative system "in the groove," even if you vary your tempo or feel.
 
-  A **modified IPF algorithm analyzes your timing** and dynamically adapts the tempo of the synthesizer to your actual playing speed.  `Externals/ipf_taptempo`
+---
 
-  This keeps the system musically “in the groove”, even if you constantly vary tempo and feel.
+## Core Interaction Concepts
 
+<img width="266" alt="Pedal GUI Interface" src="https://github.com/user-attachments/assets/bee68a1f-7ec2-4808-b04e-b75560920cb2" />
 
-## Core interaction concepts
-<img width="266" height="442" alt="Bildschirmfoto 2026-04-25 um 17 46 07" src="https://github.com/user-attachments/assets/bee68a1f-7ec2-4808-b04e-b75560920cb2" />
+### Hardware Mapping
 
-- **Footswitches**
-    - Left footswitch: toggle FX section
-    - Middle footswitch: toggle Synth (long press: freeze groove)
-    - Right footswitch: toggle Synth Input Freeze (long press: delete memory)
-      
-- **Toggleswitches** 
-  - FX assignment:
-    - FX1: PitchShift
-    - FX2: FilterDelay
-   
-  - Synth Playback:
-    - B1: Full Sample
-    - B2: Soft Mode (ADSR with long Attack applied)
-    - B3: Inverse Mode (ADSR will act inversed to your playing)
+| Control | Function | Long Press Action |
+| :--- | :--- | :--- |
+| **Left Footswitch** | Toggle FX Section | - |
+| **Middle Footswitch** | Toggle Synth | Freeze Groove |
+| **Right Footswitch** | Toggle Synth Input Freeze | Delete Memory |
 
-  - Modes:
-    - M1: PitchMode (Existing Notes will be pitched to desired note)
-    - M2: ClosestNote (Only existing notes will be played)
-    - M3: (space for further modes/extensions)
+### Toggle Switches
 
-- **Knob Controls**
-    - Gain: Input Gain
-    - Chaos: controls **how extreme** the IPF modulates effect parameters – from subtle movement to complete signal destruction.
-    - FX-Speed: determines the **tempo of IPF modulations**.
-    - FX D/W: Mix of Dry/Wet Signal.
-    - Notes: controls **how high the threshold for playable notes** is.
-    - Synth: Live-Sampler-Synth Volume.
+* **FX Assignment:**
+    * **FX1:** PitchShift
+    * **FX2:** FilterDelay
+* **Synth Playback:**
+    * **B1 (Full Sample):** Standard playback.
+    * **B2 (Soft Mode):** ADSR with a long attack applied.
+    * **B3 (Inverse Mode):** ADSR acts inversely to your playing dynamics.
+* **Modes:**
+    * **M1 (PitchMode):** Existing samples are pitched to the desired target note.
+    * **M2 (ClosestNote):** Only existing (recorded) notes are played.
+    * **M3:** Reserved for future extensions.
 
+### Knob Controls
 
-## Further development & customization
+* **Gain:** Controls Input Gain.
+* **Chaos:** Determines the intensity of IPF modulation—from subtle shifts to complete signal destruction.
+* **FX-Speed:** Sets the tempo/rate of the IPF modulations.
+* **FX D/W:** Dry/Wet mix.
+* **Notes:** Adjusts the threshold for capturing playable notes.
+* **Synth:** Controls the volume of the Live Sampler Synth.
 
-Possible extensions:
+---
 
-- Add additional FX modules in `FX/` and integrate them into `PedalBackend.pd`.
+## Future Development
 
-- Improve Onset Detection and sampling.
+* [ ] Add additional FX modules in `FX/` and integrate them into `PedalBackend.pd`.
+* [ ] Improve Onset Detection for more precise sampling.
+* [ ] Integrate with hardware controllers (e.g., MIDI mapping or specialized externals).
 
-- Integration with specific hardware controllers or pedal platforms (e.g. via MIDI or specialized externals).
+---
 
-## License & sources
+## License & Sources
 
-License information can be found in `LICENSE`.
+License information is available in the `LICENSE` file.
 
-[1] Linke, S., Bader, R., Mores, R. (2019). The impulse pattern formulation (IPF) as a model of musical instruments—Investigation of stability and limits. In: Chaos: An Interdisciplinary Journal of Nonlinear Science 29(10) https://doi.org/10.1063/1.5092511
+**Reference:**
+[1] Linke, S., Bader, R., Mores, R. (2019). *The impulse pattern formulation (IPF) as a model of musical instruments—Investigation of stability and limits.* In: Chaos: An Interdisciplinary Journal of Nonlinear Science 29(10). [https://doi.org/10.1063/1.5092511](https://doi.org/10.1063/1.5092511)
