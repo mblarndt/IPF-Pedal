@@ -8,7 +8,7 @@ Instead of just “static” FX, you get a pedal rig that actively responds to y
 ## Getting started: Run the project
 Requirements:
 
-- Installed **plugdata environment** (with required externals `else`, `cyclone`, `list-abs`, etc.).
+- Installed **plugdata environment** (with required externals `else`, `cyclone`, `list-abs`).
 
 - Audio interface or suitable input/output for the desired setup (e.g. guitar, line-in, etc.).
 
@@ -18,9 +18,19 @@ Requirements:
 
 3. Open `Project/PedalGUI.pd`.
 
-4. Enable DSP in Pd.
+4. Enable DSP.
 
-Using the GUI, you can now test audio input, **IPF-modulated effects**, the **live sampler synth**, as well as footswitch and knob control.
+## Compatibility
+
+- **Recommended environment: plugdata**  
+
+  IPF-Pedal is primarily developed and tested for **plugdata** (including externals like `else`, `cyclone`).
+
+- **Pure Data (Pd)**  
+
+  Many parts can also be used in Pd Vanilla, **but full functionality is currently not guaranteed**.  
+
+  For the complete experience (including GUI details and externals), **plugdata is strongly recommended**.
 
 ## Features
 The whole pedal backend (`Project/PedalBackend.pd`) is structured in 3 modular parts which will also work individually.
@@ -57,127 +67,44 @@ The whole pedal backend (`Project/PedalBackend.pd`) is structured in 3 modular p
 
   Your playing provides the raw material, the IPF builds new rhythmic and melodic structures from it.
 
-- **Dynamic tempo adaptation to your playing**  
+- **Extra: Dynamic tempo adaptation to your playing**  
 
   A **modified IPF algorithm analyzes your timing** and dynamically adapts the tempo of the synthesizer to your actual playing speed.  `Externals/ipf_taptempo`
 
   This keeps the system musically “in the groove”, even if you constantly vary tempo and feel.
 
 
-### Compatibility
-
-- **Recommended environment: plugdata**  
-
-  IPF-Pedal is primarily developed and tested for **plugdata** (including externals like `else`, `cyclone`).
-
-- **Pure Data (Pd)**  
-
-  Many parts can also be used in Pd Vanilla, **but full functionality is currently not guaranteed**.  
-
-  For the complete experience (including GUI details and externals), **plugdata is strongly recommended**.
-
-## Project structure
-
-The most important folders in the repository are:
-
-- `Project/`  
-
-  Contains the main project patches:
-
-  - `PedalGUI.pd`: graphical interface and central control patch
-
-  - `PedalFrontend.pd`: frontend logic, connection of switches, knobs and footswitches
-
-  - `PedalBackend.pd`: audio routing, FX and synth sections (e.g. “Audio Input”, “FX Section”, “Synth Section”)
-
-- `FX/`  
-
-  Effect patches such as:
-
-  - `ipitchf-vanilla.pd` (pitch effect)
-
-  - `ipfilterdelay-vanilla.pd` (delay/filter effect)
-
-  - `melodiner.pd` (melodic pitch processing)
-
-- `Synth/`  
-
-  Sampler synthesizer patches (e.g. `OnsetSamplerSynth.pd`, `voice.pd`, `voicemn.pd`) for sound generation and manipulation.
-
-- `Utility/`  
-
-  Helper and infrastructure patches, e.g.:
-
-  - Audio/guitar input (`audioinput.pd`, `guitarinput.pd`, `AudioControl.pd`)
-
-  - MIDI and quantization tools (`midiquantizer.pd`, `miditonote.pd`)
-
-  - Sampler and sample players (`SamplePlayer.pd`, `sampler.pd`, `ipfbeatmaker.pd`)
-
-  - Control and mapping utilities (`ipfcontrol.pd`, `gaincontrol.pd`, `ValueMapper.pd`, `smooth.pd`, `checkscale.pd`, `checkthr.pd`)
-
-  - DSP management (`dsp.pd`)
-
-- `Externals/`  
-
-  External/additional objects and their help patches (e.g. `momentary2toggle-help.pd`, `ipf~-help.pd`, `ipf-help.pd`) used by the project.
-
 ## Core interaction concepts
 <img width="266" height="442" alt="Bildschirmfoto 2026-04-25 um 17 46 07" src="https://github.com/user-attachments/assets/bee68a1f-7ec2-4808-b04e-b75560920cb2" />
 
-Based on the GUI elements in `Project/PedalGUI.pd` and `Project/PedalBackend.pd`, the following core concepts emerge:
-
-- **Sections**
-  - **Audio Input**: input signals (e.g. guitar, microphone) are routed into the patch.
-  - **FX Section**: effects for pitch and delay – switchable individually or combined.
-  - **Synth Section**: sample synthesizer unit that can be activated via footswitch or MIDI.
-
-- **Footswitches & controls** (examples from the GUI labels)
-
-  - Footswitches:
+- **Footswitches**
     - Left footswitch: toggle FX section
     - Middle footswitch: toggle Synth (long press: freeze groove)
     - Right footswitch: toggle Synth Input Freeze (long press: delete memory)
-
+      
+- **Toggleswitches** 
   - FX assignment:
     - FX1: PitchShift
     - FX2: FilterDelay
    
   - Synth Playback:
     - B1: Full Sample
-    - B2: Soft Mode
-    - B3: Inverse Mode
+    - B2: Soft Mode (ADSR with long Attack applied)
+    - B3: Inverse Mode (ADSR will act inversed to your playing)
 
   - Modes:
-    - M1: PitchMode
-    - M2: ClosestNote
+    - M1: PitchMode (Existing Notes will be pitched to desired note)
+    - M2: ClosestNote (Only existing notes will be played)
     - M3: (space for further modes/extensions)
 
-- **Control parameters**
+- **Knob Controls**
+    - Gain In: controls **how extreme** the IPF modulates effect parameters – from subtle movement to complete signal destruction.
+    - Chaos:
+    - FX-Tempo: determines the **tempo of IPF modulations** and influences both FX rhythms and synth sequencing timing.
+    - FX D/W:
+    - Notes: controls **how high the threshold for playable notes** is – i.e. when a played note is included in the live sampler synth’s note set.
+    - Synth:
 
-  - `knob1`–`knob6`: rotary controls connected to `guitarinput`, FX parameters and synth sections.  
-
-    Particularly important:
-
-    - **Chaos**: controls **how extreme** the IPF modulates effect parameters – from subtle movement to complete signal destruction.
-
-    - **Tempo**: determines the **tempo of IPF modulations** and influences both FX rhythms and synth sequencing timing.
-
-    - **Notes**: controls **how high the threshold for playable notes** is – i.e. when a played note is included in the live sampler synth’s note set.
-
-  - `fs1s`, `fs2s`, `tglsw1`–`tglsw3`: footswitch and toggle states that influence routing and effects.
-
-### Live sampler synth & IPF tempo tracking
-
-The live sampler synth is the core of the “intelligent” sound generation:
-
-- **Real-time note detection**: played notes are analyzed and added to an internal note set (depending on the `Notes` threshold).
-
-- **Building a playable synth set**: a **dynamic synthesizer** is built from these notes, using your own tones.
-
-- **IPF-generated melodies**: the IPF uses this set to generate **rhythmically and melodically structured patterns**, ranging from harmonic support to controlled chaos.
-
-- **Dynamic tempo adaptation**: a modified IPF algorithm adapts the synthesizer’s tempo to your playing – the system “breathes” with you instead of forcing you into a rigid grid.
 
 ## Further development & customization
 
@@ -185,9 +112,7 @@ Possible extensions:
 
 - Add additional FX modules in `FX/` and integrate them into `PedalBackend.pd`.
 
-- Extend with additional synth engines in `Synth/`.
-
-- Adjust mapping of knobs (`knob1`–`knob6`) and buttons to create custom performance setups.
+- Improve Onset Detection and sampling.
 
 - Integration with specific hardware controllers or pedal platforms (e.g. via MIDI or specialized externals).
 
