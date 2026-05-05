@@ -41,7 +41,7 @@ The effects section consists of two primary modules:
 The IPF generates complex patterns that dynamically modulate parameters, ranging from subtle movement to completely chaotic, broken textures.
 
 ### 2. Live Sampler
-*Path: `Synth/fx-section.pd`* (Note: check if path is correct vs. Backend)
+*Path: `Synth/fx-section.pd`* 
 
 A central component that transforms your input into a playable instrument:
 * **Real-time detection:** Analyzes the notes you play as you play them.
