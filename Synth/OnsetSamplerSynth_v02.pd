@@ -45,7 +45,7 @@
 #X floatatom 622 183 5 0 0 0 - - - 10;
 #X floatatom 661 183 5 0 0 0 - - - 12;
 #X floatatom 708 183 5 0 0 0 - - - 12;
-#X obj 621 410 outlet~ signal;
+#X obj 621 431 outlet~ signal;
 #X obj 623 203 - 1;
 #X obj 238 123 else/initmess 100;
 #X obj 238 33 inlet clear;
@@ -169,11 +169,11 @@
 #X msg 1313 932 2500;
 #X obj 621 370 else/pitch.shift~;
 #X msg 1259 932 1000;
-#X obj 620 143 poly 1 1;
 #X obj 661 203 clip 0 127;
+#X obj 620 143 poly 8 1;
 #X connect 7 0 51 1;
 #X connect 23 0 4 0;
-#X connect 24 0 168 0;
+#X connect 24 0 169 0;
 #X connect 25 0 24 1;
 #X connect 30 0 24 0;
 #X connect 34 0 35 0;
@@ -185,7 +185,7 @@
 #X connect 41 0 52 5;
 #X connect 42 0 52 6;
 #X connect 43 0 47 0;
-#X connect 44 0 169 0;
+#X connect 44 0 168 0;
 #X connect 45 0 52 2;
 #X connect 47 0 52 0;
 #X connect 48 0 12 0;
@@ -324,8 +324,8 @@
 #X connect 165 0 126 0;
 #X connect 166 0 46 0;
 #X connect 167 0 126 0;
-#X connect 168 0 43 0;
-#X connect 168 1 44 0;
-#X connect 168 2 45 0;
-#X connect 169 0 52 1;
+#X connect 168 0 52 1;
+#X connect 169 0 43 0;
+#X connect 169 1 44 0;
+#X connect 169 2 45 0;
 #X coords 0 0 1 1 221 381 1 0 0;
