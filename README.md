@@ -29,7 +29,7 @@ IPF-Pedal is a collection of plugdata patches based on **Impulse Pattern Formula
 
 ## Features
 
-The pedal backend (`Project/echomind.pd`) is structured into three modular sections that can also function independently:
+The pedal backend (`Project/echobrain.pd`) is structured into three modular sections that can also function independently:
 
 ### 1. FX Section
 *Path: `FX/fx-section.pd`*
@@ -64,7 +64,8 @@ A modified IPF algorithm analyzes your timing and dynamically adapts the synthes
 
 ## Core Interaction Concepts
 
-<img width="266" alt="Pedal GUI Interface" src="https://github.com/user-attachments/assets/bee68a1f-7ec2-4808-b04e-b75560920cb2" />
+<img width="266" alt="Bildschirmfoto 2026-05-12 um 11 31 20" src="https://github.com/user-attachments/assets/7c5a662d-ee41-493d-8767-f57f34230387" />
+
 
 ### Hardware Mapping
 
