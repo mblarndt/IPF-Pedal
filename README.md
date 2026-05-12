@@ -29,7 +29,7 @@ IPF-Pedal is a collection of plugdata patches based on **Impulse Pattern Formula
 
 ## Features
 
-The pedal backend (`Project/PedalBackend.pd`) is structured into three modular sections that can also function independently:
+The pedal backend (`Project/echomind.pd`) is structured into three modular sections that can also function independently:
 
 ### 1. FX Section
 *Path: `FX/fx-section.pd`*
@@ -80,13 +80,12 @@ A modified IPF algorithm analyzes your timing and dynamically adapts the synthes
     * **FX1:** PitchShift
     * **FX2:** FilterDelay
 * **Synth Playback:**
-    * **B1 (Full Sample):** Standard playback.
-    * **B2 (Soft Mode):** ADSR with a long attack applied.
-    * **B3 (Inverse Mode):** ADSR acts inversely to your playing dynamics.
+    * **Full Sample:** Standard playback.
+    * **Soft Mode:** ADSR with a long attack applied.
+    * **Inverse Mode):** ADSR acts inversely to your playing dynamics.
 * **Modes:**
-    * **M1 (PitchMode):** Existing samples are pitched to the desired target note.
-    * **M2 (ClosestNote):** Only existing (recorded) notes are played.
-    * **M3:** Reserved for future extensions.
+    * **PitchMode:** Existing samples are pitched to the desired target note.
+    * **ClosestNote:** Only existing (recorded) notes are played.
 
 ### Knob Controls
 
