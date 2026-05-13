@@ -14,9 +14,12 @@ IPF-Pedal is a collection of plugdata patches based on **Impulse Pattern Formula
 
 ### Installation & Setup
 1. **Clone** the repository to your local machine.
-2. **Add** the `/Externals` folder to your paths in the plugdata settings.
-3. **Open** `Project/PedalGUI.pd`.
-4. **Enable DSP** to start processing audio.
+```c
+git clone --recursive https://github.com/mblarndt/IPF-Pedal.git
+```
+3. **Add** the `/Externals` folder to your paths in the plugdata settings.
+4. **Open** `Project/PedalGUI.pd`.
+5. **Enable DSP** to start processing audio.
 
 ---
 
