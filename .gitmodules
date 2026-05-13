@@ -1,3 +1,6 @@
 [submodule "NativeApp/Vendor/libpd"]
 	path = NativeApp/Vendor/libpd
 	url = https://github.com/libpd/libpd.git
+[submodule "Externals/list-abs"]
+	path = Externals/list-abs
+	url = https://github.com/pd-externals/list-abs.git
