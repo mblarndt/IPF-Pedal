@@ -1,0 +1,3 @@
+[submodule "NativeApp/Vendor/libpd"]
+	path = NativeApp/Vendor/libpd
+	url = https://github.com/libpd/libpd.git

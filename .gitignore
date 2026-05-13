@@ -1,0 +1,6 @@
+
+# Native app build artifacts / downloaded sources
+NativeApp/Vendor/src/
+NativeApp/Vendor/pd-externals/
+NativeApp/Vendor/list-abs/
+NativeApp/Vendor/libpd/build-ios/
