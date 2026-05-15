@@ -84,7 +84,7 @@
 #X obj 18 131 cnv 15 58 83 empty empty empty 20 12 0 14 #00b78c #353037 0;
 #X obj 83 41 cnv 15 119 82 empty empty empty 20 12 0 14 #f2d266 #353037 0;
 #X obj 83 131 cnv 15 120 83 empty empty empty 20 12 0 14 #f47600 #353037 0;
-#X obj 154 63 else/knob 35 0 127 0 100 knobfxdw rknobfxdw #e4e4e4 #000000 #000000 0 0 0 0 0 280 0 0 0 empty 0 12 0 -15 0 1 0 0 0;
+#X obj 154 63 else/knob 35 0 127 0 127 knobfxdw rknobfxdw #e4e4e4 #000000 #000000 0 0 0 0 0 280 0 0 0 empty 0 12 0 -15 0 1 0 0 0;
 #X obj 96 63 else/knob 35 0 127 0 84 knobfxspeed rknobfxspeed #e4e4e4 #000000 #000000 0 0 0 0 0 280 0 0 0 empty 0 12 0 -15 0 1 0 0 0;
 #X obj 29 64 else/knob 36 0 127 0 84 knobgain rknobgain #e4e4e4 #000000 #000000 0 0 0 0 0 280 0 0 0 empty 0 12 0 -15 0 1 0 0 0;
 #X obj 24 144 else/knob 47 0 127 0 80 knobchaos rknobchaos #e4e4e4 #000000 #000000 0 0 0 0 0 280 0 0 0 empty 0 12 0 -15 0 1 0 0 0;
@@ -101,11 +101,11 @@
 #X obj 110 44 else/note 67 16 Arial\ Black empty 0 36 38 41 0 25 25 25 0 1 FX;
 #X obj 15 44 else/note 67 16 Arial\ Black empty 0 36 38 41 0 25 25 25 0 1 IN;
 #X obj 82 242 else/note 35 76 Inter synthcol 0 255 0 15 0 25 25 25 0 1 .;
-#X obj 23 242 else/note 35 76 Inter fxcol 0 255 0 15 0 25 25 25 0 1 .;
+#X obj 23 242 else/note 35 76 Inter fxcol 0 20 231 31 0 25 25 25 0 1 .;
 #X obj 18 221 cnv 15 59 68 empty empty empty 20 12 0 14 #f2d266 #353037 0;
 #X obj 158 242 else/note 35 76 Inter freezecol 0 255 0 15 0 25 25 25 0 1 .;
 #X obj 18 267 else/note 59 16 Inter tglsw1sym 0 36 38 41 0 25 25 25 0 1 Pitch;
-#X obj 85 265 else/note 59 16 Inter tglsw2sym 0 36 38 41 0 25 25 25 0 1 Soft;
+#X obj 85 265 else/note 59 16 Inter tglsw2sym 0 36 38 41 0 25 25 25 0 1 Sample;
 #X obj 141 265 else/note 59 16 Inter tglsw3sym 0 36 38 41 0 25 25 25 0 1 Pitch;
 #X obj 92 247 hradio 16 1 0 3 tglsw2 rtglsw2 empty 0 -8 0 10 #e4e4e4 #4d4d4d #373737 0;
 #X obj 32 247 hradio 16 1 0 2 tglsw1 rtglsw1 empty 0 -8 0 10 #e4e4e4 #4d4d4d #373737 0;
@@ -461,10 +461,10 @@
 #X obj 331 44 else/note 67 16 Arial\ Black empty 0 36 38 41 0 25 25 25 0 1 FX;
 #X obj 236 44 else/note 67 16 Arial\ Black empty 0 36 38 41 0 25 25 25 0 1 IN;
 #X obj 303 242 else/note 35 76 Inter synthcol 0 255 0 15 0 25 25 25 0 1 .;
-#X obj 244 242 else/note 35 76 Inter fxcol 0 255 0 15 0 25 25 25 0 1 .;
+#X obj 244 242 else/note 35 76 Inter fxcol 0 20 231 31 0 25 25 25 0 1 .;
 #X obj 379 242 else/note 35 76 Inter freezecol 0 255 0 15 0 25 25 25 0 1 .;
 #X obj 239 267 else/note 59 16 Inter tglsw1sym 0 36 38 41 0 25 25 25 0 1 Pitch;
-#X obj 306 265 else/note 59 16 Inter tglsw2sym 0 36 38 41 0 25 25 25 0 1 Soft;
+#X obj 306 265 else/note 59 16 Inter tglsw2sym 0 36 38 41 0 25 25 25 0 1 Sample;
 #X obj 362 265 else/note 59 16 Inter tglsw3sym 0 36 38 41 0 25 25 25 0 1 Pitch;
 #X obj 228 224 else/note 82 16 Arial\ Black empty 0 36 38 41 0 25 25 25 0 1 FX Type;
 #X obj 302 224 else/note 69 16 Arial\ Black empty 0 36 38 41 0 25 25 25 0 1 ADSR;
@@ -520,6 +520,8 @@
 #X obj 144 1005 expr abs($f1-127);
 #X obj 738 187 else/initmess 60;
 #X obj 667 767 r tglsynthfx;
+#X obj -47 272 tgl 21 0 ipfext empty empty 0 -10 0 10 #e4e4e4 #4d4d4d #373737 0 1;
+#X obj -197 272 else/note 139 16 Arial empty 0 36 38 41 0 25 25 25 0 0 IPF External/Vanilla;
 #X connect 8 0 114 0;
 #X connect 9 0 90 0;
 #X connect 10 0 90 0;
@@ -663,4 +665,4 @@
 #X connect 268 0 173 1;
 #X connect 268 0 182 0;
 #X connect 268 0 187 0;
-#X coords 0 -1 1 1 222 370 2 0 0;
+#X coords 0 -1 1 1 222 370 2 -222 0;
